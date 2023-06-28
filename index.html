@@ -9,12 +9,13 @@
 <body>
     <h1>Rock Paper Scissors</h1>
 
-    <section class="window">
-        <div id="game">
+    <section id="window">
+        <div class="game" id="game">
             <h2>Make your selection:</h2>
             <button id="rock">Rock</button>
             <button id="paper">Paper</button>
             <button id="scissors">Scissors</button>
+            <p id="winner"></p>
         </div>
 
         <div id="scoreboard">
@@ -27,7 +28,17 @@
         </div>
     </section>
 
+    <div class="reset">
+        <button id="reset-button" onclick="resetGame()">Reset Game</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
+<footer>
+    <div>
+        <p>&copy; 2023 Patrick McClelland. All rights reserved.</p>
+    </div>
+</footer>
 
 </html>

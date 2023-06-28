@@ -1,4 +1,3 @@
-let buttons = document.querySelectorAll("button");
 let playerScore = 0;
 let computerScore = 0;
 let tieScore = 0;
@@ -10,6 +9,8 @@ let computerScoreText = document.getElementById("computer-score");
 let tieScoreText = document.getElementById("tie-score");
 let gamesPlayedText = document.getElementById("games-played");
 let winPercentText = document.getElementById("win-percent");
+let buttons = document.querySelectorAll("div.game > button");
+let results
 
 buttons.forEach((button) => {
   button.addEventListener("click", playGame);
@@ -30,17 +31,18 @@ function playGame() {
   }
 
   updateScore();
-
-  displayResult(result);
-
   calcWinPercent();
+  displayResult(result);
 }
 
 function calcWinPercent() {
+  if (gamesPlayed === 0) {
+    winPercent = 0;
+  } else {
     winPercent = playerScore / gamesPlayed;
+  }
     return winPercent;
 }
-
 
 function computerPlay() {
   let options = ["rock", "paper", "scissors"];
@@ -68,17 +70,28 @@ function playRound(playerSelection, computerSelection) {
 
 function displayResult(result) {
   let gameDiv = document.getElementById("game");
-  let resultText = document.createElement("p");
+  let resultText = document.createElement("p"); // THIS IS WHERE I NEED TO FIX MY PROGRAM AND ADD A P LINE
   resultText.textContent = result;
   gameDiv.appendChild(resultText);
 }
 
 function updateScore() {
   calcWinPercent();
-    let roundedWinPercent = Math.round(winPercent * 100);
+  let roundedWinPercent = Math.round(winPercent * 100);
   playerScoreText.textContent = `Player: ${playerScore}`;
   computerScoreText.textContent = `Computer: ${computerScore}`;
   tieScoreText.textContent = `Tie: ${tieScore}`;
   gamesPlayedText.textContent = `Games Played: ${gamesPlayed}`;
   winPercentText.textContent = `Win Percentage: ${roundedWinPercent}%`;
 }
+
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  tieScore = 0;
+  gamesPlayed = 0;
+  winPercent = 0;
+  updateScore();
+}
+
+resetbutton.addEventListener("click", resetGame);
