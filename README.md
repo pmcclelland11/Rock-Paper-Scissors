@@ -1,7 +1,5 @@
 # Rock-Paper-Scissors
-Rock Paper Scissors Game {HTML / CSS / JS}
-
-
+Continuing the mini project from the end of module 3. Created a working rock paper scissors game using JavaScript, then made a cooresponding HTML webpage with a CSS stylesheet to accompany it.
 
 ## Table of Contents 
 - [User Story](#user-story)
